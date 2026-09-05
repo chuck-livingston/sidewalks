@@ -363,7 +363,7 @@
       <span class="pill fair">Fair</span> <span class="swci-badge poor">SWCI 34 · Poor</span>
     </div>
     <div>
-      The colored pill (e.g. "Fair") is a quick, rougher label. The <strong>SWCI</strong> badge is the real computed score (0–100, based on actual measured defects) &mdash; it's the number the City's own official report and statistics are built from. <strong>When the two disagree, the SWCI number is the more reliable one.</strong>
+      The colored pill (e.g. "Fair") is a simple field label. The <strong>SWCI</strong> badge is a separate computed score (0–100) that the City's own official report and statistics are built from &mdash; but its exact formula is proprietary and undisclosed, so it shouldn't be assumed reliable either. <strong>Neither rating reliably catches a single severe defect that can make a block impassable</strong> &mdash; for that, check the itemized defect list below each rating, which is the one thing here that isn't averaged or hidden.
     </div>
   </div>
   <div class="search-box">
@@ -671,7 +671,7 @@ function swciBadge(swci){
   else if(v>=50){band='Marginal';cls='marginal';}
   else if(v>=30){band='Poor';cls='poor';}
   else {band='Very Poor';cls='verypoor';}
-  return `<span class="swci-badge ${cls}" title="Sidewalk Condition Index: a separate, computed 0-100 composite score based on the size and severity of recorded defects. This is the score the city's own official report and its percentages are built from -- it often disagrees with the 'Good/Fair/Poor' label to its left, which comes from a simpler, less reliable field.">SWCI ${v.toFixed(0)} · ${band}</span>`;
+  return `<span class="swci-badge ${cls}" title="Sidewalk Condition Index: a separate, computed 0-100 composite score based on the size and severity of recorded defects, and the number the city's own official report is built from. Its exact formula is proprietary and undisclosed, so it should not be assumed reliable just because it is official. It catches more severe individual defects than the 'Good/Fair/Poor' label does, but still misses most of them -- check the itemized defect list below for the most reliable picture.">SWCI ${v.toFixed(0)} · ${band}</span>`;
 }
 
 function orderRecordsBySideAndPosition(records){
